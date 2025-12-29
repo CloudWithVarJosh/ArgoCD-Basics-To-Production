@@ -1,0 +1,34 @@
+Basic Level
+
+What is GitOps? How does it differ from traditional DevOps?
+What are the core principles of GitOps?
+Why is Git considered the single source of truth in GitOps?
+What are the benefits of GitOps over manual deployments?
+Explain the difference between GitOps and Infrastructure as Code (IaC).
+
+
+✅ Intermediate Level
+
+What tools are commonly used for GitOps? (e.g., ArgoCD, Flux)
+How does GitOps handle secrets management?
+Explain the GitOps workflow for deploying an application to Kubernetes.
+What is the role of Continuous Deployment in GitOps?
+How do you manage multiple environments (dev, staging, prod) using GitOps?
+
+
+✅ Advanced Level
+
+How does GitOps ensure security and compliance?
+What strategies can be used for rollback in GitOps?
+How do you handle drift detection and reconciliation in GitOps?
+What are the challenges of implementing GitOps at scale?
+Explain how GitOps integrates with CI/CD pipelines.
+
+
+✅ Scenario-Based Questions
+
+If a cluster state drifts from the desired state in Git, how do you fix it?
+How would you design a GitOps workflow for a multi-cluster Kubernetes setup?
+What happens if the Git repository becomes unavailable? How do you mitigate this risk?
+How do you implement GitOps for non-Kubernetes environments?
+Describe a real-world use case where GitOps improved deployment reliability.
