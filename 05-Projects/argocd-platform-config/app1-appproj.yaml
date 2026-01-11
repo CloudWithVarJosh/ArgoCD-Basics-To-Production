@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: app1-project
+  namespace: argocd
+spec:
+  description: Project for App1 frontend and backend workloads
+  sourceRepos:
+    - https://github.com/CloudWithVarJosh/app1-frontend-config.git
+    - https://github.com/CloudWithVarJosh/app1-backend-config.git
+  destinations:
+    - namespace: app1-*
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: ""
+      kind: Namespace
+  namespaceResourceWhitelist:
+    - group: apps
+      kind: Deployment
+    - group: ""
+      kind: Service
+    - group: ""
+      kind: ConfigMap
+    - group: ""
+      kind: Secret
+  clusterResourceBlacklist:
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+  roles:
+    - name: dev-readonly
+      description: Read-only access for developers
+      policies:
+        - p, proj:app1-project:dev-readonly, applications, get, app1-project/*, allow
+      groups:
+        - app1-devs
+    - name: platform-admin
+      description: Full control for platform team
+      policies:
+        - p, proj:app1-project:platform-admin, applications, *, app1-project/*, allow
+      groups:
+        - platform-team
