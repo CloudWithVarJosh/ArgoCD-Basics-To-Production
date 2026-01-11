@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: app1-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: cloudwithvarjosh/app1-frontend:v1.0.0
+          ports:
+            - containerPort: 4000
+          env:
+            - name: BACKEND_URL
+              value: http://backend-svc:5000/api/message

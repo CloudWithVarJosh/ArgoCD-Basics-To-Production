@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app1-fe-app
+  namespace: argocd
+spec:
+  project: app1-project
+  source:
+    repoURL: https://github.com/CloudWithVarJosh/app1-frontend-config.git
+    targetRevision: HEAD
+    path: frontend
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: app1-ns
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
