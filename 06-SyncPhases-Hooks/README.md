@@ -1,6 +1,8 @@
-# Argo CD Sync Phases & Hooks Explained
+# Argo CD Sync Phases & Hooks Tutorial | Step-by-Step Hands-On
 
 ## Video reference for this lecture is the following:
+
+[![Watch the video](https://img.youtube.com/vi/usj6RP6uzUc/maxresdefault.jpg)](https://www.youtube.com/watch?v=usj6RP6uzUc&ab_channel=CloudWithVarJosh)
 
 ---
 ## ⭐ Support the Project  
@@ -72,6 +74,7 @@ Sync phases and hooks exist to provide **lifecycle control within this sync proc
 
 ### What is a sync operation?
 
+![Alt text](/images/6a.png)
 A **sync operation** is Argo CD’s control-plane action that **applies Git-declared desired state to the Kubernetes cluster**, attempting to make live state match version-controlled intent.
 
 * Argo CD compares desired Git state with live cluster state, detects drift, and computes the exact changes required for reconciliation.
@@ -96,6 +99,8 @@ A **sync operation** is Argo CD’s control-plane action that **applies Git-decl
 
 ### What are sync phases?
 
+![Alt text](/images/6b.png)
+
 Sync phases exist because Kubernetes manifests only describe *what* to deploy, not *when* deployment steps should occur.
 They provide Argo CD with **explicit lifecycle checkpoints** where deployment, validation, failure handling, or cleanup logic can be orchestrated.
 
@@ -117,6 +122,8 @@ Sync phases are **named lifecycle stages within an Argo CD operation**, indicati
 
 ### What is a hook?
 
+![Alt text](/images/6c.png)
+
 A **hook** is a Kubernetes resource (native or custom) that Argo CD **treats specially** to perform actions **around a sync or application lifecycle operation**, instead of reconciling it like a normal workload.
 
 * Hooks are defined **directly inside Kubernetes resource manifests** using annotations, not in Argo CD Application specs.
@@ -131,6 +138,8 @@ A **hook** is a Kubernetes resource (native or custom) that Argo CD **treats spe
 ---
 
 ### Supported hook types and their behavior
+
+![Alt text](/images/6d.png)
 
 Hooks are Kubernetes resources annotated with **hook names**.
 Most hook names align with sync phase names to define *when* they execute, but they remain **hooks**, not phases.
