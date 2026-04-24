@@ -8,10 +8,11 @@ spec:
   source:
     repoURL: https://github.com/esarath/ArgoCD-Basics-To-Production.git
     targetRevision: HEAD
-    path: .
-    #path: usr/esarath/ArgoCD-Production/04-PrivateRepo+SyncPruneSelfHeal/app1-config
+    path: usr/esarath/ArgoCD-Production/04-PrivateRepo+SyncPruneSelfHeal/app1-config
   destination:
     server: https://kubernetes.default.svc
     namespace: app1-ns
-
-    
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
