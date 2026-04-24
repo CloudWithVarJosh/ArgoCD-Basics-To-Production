@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/CloudWithVarJosh/cwvj-app1-config.git
+    repoURL: https://github.com/esarath/ArgoCD-Basics-To-Production.git
     targetRevision: HEAD
     path: .
   destination:
