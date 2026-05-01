@@ -987,6 +987,49 @@ Understanding this nuance helps avoid confusion during demos and prevents surpri
 
 ---
 
+## Troubleshooting: Application Not Appearing in ArgoCD UI
+
+### Issue
+Application CRD exists in Git repository but does not appear in ArgoCD UI even after pushing changes.
+
+### Root Cause
+ArgoCD does not auto-discover Application CRDs in Git repositories. The Application resource must exist in the Kubernetes cluster first to tell ArgoCD what to monitor. This is a bootstrap pattern by design for security and control.
+
+### Why This Happens
+1. **Bootstrap Required**: Application CRD files in Git are just manifests. ArgoCD needs the Application resource created in the cluster via kubectl first.
+2. **Security Design**: You explicitly control which applications get deployed to which clusters.
+3. **File Location**: YAML files must be accessible to kubectl on the cluster machine.
+
+### Action Items to Fix
+1. **Clone repository on cluster machine**:
+   ```bash
+   git clone https://github.com/esarath/ArgoCD-Basics-To-Production.git
+   cd ArgoCD-Basics-To-Production/04-PrivateRepo+SyncPruneSelfHeal/app1-config
+   ```
+
+2. **Apply repository secret for private repo authentication**:
+   ```bash
+   kubectl apply -f argocd-repo-secret.yaml
+   ```
+
+3. **Apply Application CRD to cluster**:
+   ```bash
+   kubectl apply -f app1-app-crd.yaml
+   ```
+
+4. **Add repository to ArgoCD** (if not already added):
+   ```bash
+   argocd repo add https://github.com/esarath/ArgoCD-Basics-To-Production.git \
+     --name app1-config-repo \
+     --username esarath \
+     --password <GITHUB-PAT>
+   ```
+
+### Key Takeaway
+ArgoCD requires a one-time manual bootstrap (kubectl apply) to create the Application resource. After that, GitOps takes over and all future changes are automated. This bootstrap step is necessary only once per application.
+
+---
+
 # Self-healing
 
 **Purpose:** Automatically revert manual cluster changes to match Git-defined desired state.
