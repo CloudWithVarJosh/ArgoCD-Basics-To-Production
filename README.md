@@ -2,19 +2,37 @@
 
 # Argo CD: Basics to Production Course
 
-Welcome to the official GitHub repository for the **Argo CD – Basics to Production** course!
+> Learn GitOps the way it works in real production Kubernetes environments.
 
-This repository is your central hub for learning **GitOps with Argo CD**, from core concepts to production-ready patterns.
-It complements the video lectures with structured notes, diagrams, and configuration examples that help you understand **how Git becomes the source of truth and how Argo CD enforces it on Kubernetes**.
+## 🔥 One of the Fastest-Growing GitOps Learning Repositories
+
+[![oosmetrics](https://api.oosmetrics.com/api/v1/badge/achievement/7883652e-478c-4e9c-bc15-01f203baacb7.svg)](https://oosmetrics.com/repo/CloudWithVarJosh/ArgoCD-Basics-To-Production)
+
+* Ranked **Top 5 in CI/CD** on oosmetrics
+* Based on **real usage acceleration (not vanity stars)**
+* Among fastest-growing CI/CD learning repositories
+* Used by engineers learning production GitOps
+
+> Learn how Git becomes the source of truth and how Argo CD enforces it in real Kubernetes environments.
+
+---
+
+Welcome to **Argo CD: Basics to Production**.
+
+This repository is a structured, production-focused guide to learning **GitOps with Argo CD**, from core concepts to real-world implementation patterns.
+
+It complements the video lectures with clear notes, diagrams, and hands-on configuration examples.
 
 This course focuses on **GitOps principles first**, and then shows how Argo CD implements those principles in real-world Kubernetes environments.
 
 ---
 
-### Course Introduction: 
+### Course Introduction:
+
 [![Watch the video](https://img.youtube.com/vi/Q5RvLl6KDqU/maxresdefault.jpg)](https://www.youtube.com/watch?v=Q5RvLl6KDqU&ab_channel=CloudWithVarJosh)
 
 ## YouTube Playlist for This Course
+
 [Argo CD: Basics to Production Playlist](https://www.youtube.com/playlist?list=PLmPit9IIdzwSR-4FP65oP3AoZCKBvbwXg)
 
 ---
@@ -49,15 +67,15 @@ Your support motivates me to keep creating high-quality, free DevOps and Kuberne
 
 1. **Clone the repository:**
 
-   ```bash
-   git clone https://github.com/CloudWithVarJosh/ArgoCD-Basics-To-Production.git
-   ```
+```bash
+git clone https://github.com/CloudWithVarJosh/ArgoCD-Basics-To-Production.git
+```
 
 2. **Navigate to the folder for the corresponding lecture/day:**
 
-   ```bash
-   cd ArgoCD-Basics-To-Production/Day1
-   ```
+```bash
+cd ArgoCD-Basics-To-Production/Day1
+```
 
 Each folder aligns with the corresponding video and builds on previous concepts.
 
